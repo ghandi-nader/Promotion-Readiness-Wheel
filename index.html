@@ -17,6 +17,7 @@ var surveyJSON = {"title":"Promotion Readiness Wheel","pages":[{"name":"Visibili
 
 function sendDataToServer(survey) {
     //send Ajax request to your web server.
+    console.log(survey.data);
     alert("The results are:" + JSON.stringify(survey.data));
 }
 
