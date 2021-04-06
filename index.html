@@ -17,8 +17,19 @@ var surveyJSON = {"title":"Promotion Readiness Wheel","pages":[{"name":"Visibili
 
 function sendDataToServer(survey) {
     //send Ajax request to your web server.
-    console.log(survey.data);
-    alert("The results are:" + JSON.stringify(survey.data));
+    result= Object.entries(survey.data)
+    
+    let csvContent = "data:text/csv;charset=utf-8,";
+
+result.forEach(function(rowArray) {
+    let row = rowArray.join(",");
+    csvContent += row + "\r\n";
+});
+    
+    var encodedUri = encodeURI(csvContent);
+window.open(encodedUri);
+    
+    
 }
 
 var survey = new Survey.Model(surveyJSON);
